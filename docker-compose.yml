@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+
+  flask:
+    container_name: flask
+    build:
+      context: ./flask_app
+    volumes:
+      - ./flask_app:/app
+    ports:
+      - 8000:8000
+
+  node:
+    container_name: node
+    build:
+      context: ./node_app
+    volumes:
+      - ./node_app:/app
+      - /app/node_modules
+    ports:
+      - 3000:3000
